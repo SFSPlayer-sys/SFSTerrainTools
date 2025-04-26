@@ -1,0 +1,490 @@
+:root {
+    --primary-color: #4a6bdf;
+    --secondary-color: #3dc47e;
+    --accent-color: #f76707;
+    --background-color: #f5f7fa;
+    --card-background: #ffffff;
+    --text-color: #2d3748;
+    --border-radius: 12px;
+    --shadow: 0 4px 12px rgba(0,0,0,0.08);
+    --transition: all 0.3s ease;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    min-height: 100vh;
+    padding: 2rem 0;
+    line-height: 1.6;
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.app-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.app-title {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+}
+
+.app-subtitle {
+    color: #6b7280;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.tab-navigation {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    gap: 0.5rem;
+    background: #e9ecef;
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+}
+
+.tab-button {
+    background: transparent;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: var(--border-radius);
+    color: #4a5568;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tab-button.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+.tab-button:hover:not(.active) {
+    background: rgba(0,0,0,0.05);
+}
+
+.card {
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border: none;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.card-header {
+    background: linear-gradient(135deg, var(--primary-color), #6481e4);
+    color: white;
+    border-radius: var(--border-radius) var(--border-radius) 0 0 !important;
+    padding: 1.25rem 1.5rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-header .badge {
+    background: rgba(255,255,255,0.25);
+    color: white;
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 1rem;
+}
+
+.card-header.generate {
+    background: linear-gradient(135deg, var(--secondary-color), #34b371);
+}
+
+.card-body {
+    padding: 1.75rem;
+}
+
+.btn-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    border-radius: var(--border-radius);
+    padding: 0.85rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn i {
+    font-size: 1.1rem;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background: #3d5bcf;
+    border-color: #3d5bcf;
+    box-shadow: 0 4px 10px rgba(74, 107, 223, 0.3);
+}
+
+.btn-success {
+    background: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-success:hover, .btn-success:focus {
+    background: #32a86c;
+    border-color: #32a86c;
+    box-shadow: 0 4px 10px rgba(61, 196, 126, 0.3);
+}
+
+/* 生成地形按钮的特殊样式 */
+#generateRandomHeight {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(61, 196, 126, 0.4);
+    background: linear-gradient(135deg, #3dc47e, #34b371, #2ca266);
+    animation: pulse 2s infinite;
+}
+
+#generateRandomHeight:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(61, 196, 126, 0.5);
+    background: linear-gradient(135deg, #34b371, #2ca266, #34b371);
+}
+
+#generateRandomHeight:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(61, 196, 126, 0.4);
+}
+
+#generateRandomHeight i {
+    font-size: 1.2rem;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 4px 15px rgba(61, 196, 126, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(61, 196, 126, 0.65);
+    }
+    100% {
+        box-shadow: 0 4px 15px rgba(61, 196, 126, 0.4);
+    }
+}
+
+.form-label {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.form-control, .form-range, .form-select {
+    border-radius: var(--border-radius);
+    border: 1px solid #e2e8f0;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 107, 223, 0.2);
+}
+
+.form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.terrain-params {
+    background: #f0f9f0;
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-left: none;
+}
+
+.terrain-mode {
+    border: 1px solid #e2e8f0;
+    border-radius: var(--border-radius);
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    background: white;
+    transition: var(--transition);
+}
+
+.terrain-mode:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.terrain-mode-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.25rem;
+}
+
+.terrain-mode-title {
+    font-weight: 600;
+    margin-left: 0.75rem;
+    color: var(--text-color);
+}
+
+.terrain-mode-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #edf2ff;
+    border-radius: 8px;
+    color: var(--primary-color);
+}
+
+.chart-container {
+    position: relative;
+    margin-top: 2rem;
+}
+
+.chart-controls {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.control-group {
+    flex: 1;
+}
+
+.legend {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    font-size: 0.875rem;
+    border-left: none;
+}
+
+.legend div {
+    margin-bottom: 0.35rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.legend div:last-child {
+    margin-bottom: 0;
+}
+
+.legend span {
+    font-weight: 600;
+}
+
+.collapse-header {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+    color: var(--primary-color);
+    padding: 0.75rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.collapse-header:after {
+    content: '\f107';
+    font-family: 'FontAwesome';
+    transition: var(--transition);
+}
+
+.collapse-header.collapsed:after {
+    transform: rotate(-90deg);
+}
+
+.advanced-options .card-body {
+    padding-top: 0;
+}
+
+/* Tooltip styles */
+.tooltip-container {
+    position: relative;
+    display: inline-block;
+    margin-left: 0.5rem;
+}
+
+.tooltip-icon {
+    color: #a0aec0;
+    cursor: pointer;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: #2d3748;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.8rem;
+    font-weight: normal;
+}
+
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .chart-controls {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .btn-group {
+        flex-direction: column;
+    }
+    
+    .terrain-mode {
+        padding: 1rem;
+    }
+    
+    .app-title {
+        font-size: 2.2rem;
+    }
+}
+
+/* Range slider styling */
+.form-range::-webkit-slider-thumb {
+    background-color: white !important;
+    border: 2px solid var(--primary-color);
+}
+
+.form-range::-moz-range-thumb {
+    background-color: white !important;
+    border: 2px solid var(--primary-color);
+}
+
+.form-range::-ms-thumb {
+    background-color: white !important;
+    border: 2px solid var(--primary-color);
+}
+
+/* 确保高级选项中的滑块也是白色 */
+.advanced-options .form-range::-webkit-slider-thumb {
+    background-color: white !important;
+    border: 2px solid var(--secondary-color);
+}
+
+.advanced-options .form-range::-moz-range-thumb {
+    background-color: white !important;
+    border: 2px solid var(--secondary-color);
+}
+
+.advanced-options .form-range::-ms-thumb {
+    background-color: white !important;
+    border: 2px solid var(--secondary-color);
+}
+
+/* Animation for content transitions */
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+
+.config-actions {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+}
+
+.config-actions .btn {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border-width: 2px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.config-actions .btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 10px rgba(74, 107, 223, 0.3);
+    transform: translateY(-2px);
+}
+
+.config-actions .btn:active {
+    transform: translateY(1px);
+}
+
+/* 预览页面中的缩放值使用蓝色 */
+#previewHeightParams #zoomValue,
+#zoomValue,
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+/* 确保预览页面所有高亮文本使用蓝色 */
+#previewHeightParams .text-primary {
+    color: var(--primary-color) !important;
+}
+
+/* 滑动条轨道样式 */
+.form-range::-webkit-slider-runnable-track {
+    background: #e2e8f0;
+    border-radius: 10px;
+    height: 6px;
+}
+
+.form-range::-moz-range-track {
+    background: #e2e8f0;
+    border-radius: 10px;
+    height: 6px;
+}
+
+.form-range::-ms-track {
+    background: #e2e8f0;
+    border-radius: 10px;
+    height: 6px;
+} 
